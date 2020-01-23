@@ -3,9 +3,10 @@
 
 <head>
     <style>
-        input{
+        input {
             padding: 2px;
         }
+
         h1 {
             color: black;
             text-shadow: 2px 2px 5px grey;
@@ -74,12 +75,39 @@
                     document.getElementById("e_salary").innerHTML = getData.data.employee_salary;
 
                 }
+
             };
             getObj.open("GET", url, true);
             getObj.send();
+        }
+
+        function PostMethod() {
+            debugger;
+            //  document.getElementById('postdiv').style.visibility="visible";
+            var getObj = new XMLHttpRequest();
+            // var url = "http://dummy.restapiexample.com/api/v1/employee/2";
+            var url = "../data/employee.json";
+            getObj.open("POST", url, true);
+            getObj.setRequestHeader("Content-Type", "application/json");
+            debugger;
+            getObj.onreadystatechange = function () {
+                if (getObj.readyState == 4 && getObj.status == 200) {
+                }
+            };
+            var data1 = JSON.stringify({
+                "data":
+                {
+                    "id": document.getElementById("ge_id").value,
+                    "employee_name": document.getElementById("ge_name").value,
+                    "employee_salary": document.getElementById("ge_sAL").value,
+                    "employee_age": document.getElementById("ge_age").value
+                }
+            });
+            getObj.send(data1)
 
 
         }
+         
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
@@ -103,8 +131,8 @@
         </br>
         <label for="ge_id">ID :</label> <input type="text" name="ID" id="ge_Id"></br>
         <label for="ge_age">AGE :</label><input type="text" name="AGE" id="ge_age"></br>
-        <label for="ge_sal">SALARY :</label><input type="text" name="SALRY" id="ge_sAL"></div></BR>
-        <input type="button" value="Submit"> 
+        <label for="ge_sal">SALARY :</label><input type="text" name="SALRY" id="ge_sAL"></div>
+    <button style="width: 100px; float: right;" onclick="PostMethod">SUBMIT</button>
     </div>
 
 
