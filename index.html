@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        input{
+            padding: 2px;
+        }
+        h1 {
+            color: black;
+            text-shadow: 2px 2px 5px grey;
+        }
+
+        .postdiv {
+            padding: 3px;
+            visibility: visible;
+            width: 37%;
+            height: 300px;
+            margin: 2px;
+            overflow: auto;
+            float: left;
+            border-radius: 3px;
+            border: 3px solid black;
+            /* display: inline-block; */
+        }
+
+        .getdiv {
+            /* margin-top: 10px; */
+            /* background-color: brown; */
+            visibility: visible;
+            padding: 2px;
+            width: 40%;
+            height: 300px;
+            margin: 2px;
+            overflow: auto;
+            float: inline-end;
+            border-radius: 3px;
+            border: 3px solid black;
+            /* display: inline-block; */
+        }
+
+        button {
+            opacity: 0.5;
+            width: 40%;
+            height: 60px;
+            color: grey;
+            background-color: green;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        button:hover {
+            opacity: 1;
+        }
+
+        button:active {
+            opacity: 1;
+        }
+    </style>
+
+    <script>
+        function onGet() {
+            //  document.getElementById('postdiv').style.visibility="visible";
+            var getObj = new XMLHttpRequest();
+            // var url = "http://dummy.restapiexample.com/api/v1/employee/2";
+            var url = "../data/employee.json";
+            getObj.onreadystatechange = function () {
+                if (getObj.readyState == 4 && getObj.status == 200) {
+                    var getData = JSON.parse(getObj.responseText);
+                    document.getElementById("e_name").innerHTML = getData.data.employee_name;
+                    document.getElementById("e_id").innerHTML = getData.data.id;
+                    debugger;
+                    document.getElementById("e_age").innerHTML = getData.data.employee_age;
+                    document.getElementById("e_salary").innerHTML = getData.data.employee_salary;
+
+                }
+            };
+            getObj.open("GET", url, true);
+            getObj.send();
+
+
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button id="get_b" onclick="onGet()">GET</button>
+    <button onclick="onPost()">POST</button>
+    <div class="postdiv">
+        <p>NAME : <b id="e_name"></b></p>
+        <p>ID : <b id="e_id"></b></p>
+        <p>AGE :<b id="e_age"></b></p>
+        <p>SALARY :<b id="e_salary"></b></p>
+    </div>
+
+    <div class="getdiv">
+        <label for="ge_name">NAME :</label> <input type="text" name="Name" id="ge_name">
+        </br>
+        <label for="ge_id">ID :</label> <input type="text" name="ID" id="ge_Id"></br>
+        <label for="ge_age">AGE :</label><input type="text" name="AGE" id="ge_age"></br>
+        <label for="ge_sal">SALARY :</label><input type="text" name="SALRY" id="ge_sAL"></div></BR>
+        <input type="button" value="Submit"> 
+    </div>
+
+
+
+
+</body>
+
+</html>
