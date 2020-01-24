@@ -64,15 +64,17 @@
             //  document.getElementById('postdiv').style.visibility="visible";
             var getObj = new XMLHttpRequest();
             // var url = "http://dummy.restapiexample.com/api/v1/employee/2";
-            var url = "../data/employee.json";
+            // var url = "../data/employee.json";
+            var url = "https://jsonplaceholder.typicode.com/posts/1";
             getObj.onreadystatechange = function () {
                 if (getObj.readyState == 4 && getObj.status == 200) {
                     var getData = JSON.parse(getObj.responseText);
-                    document.getElementById("e_name").innerHTML = getData.data.employee_name;
-                    document.getElementById("e_id").innerHTML = getData.data.id;
+                    alert(getData.id);
+                    document.getElementById("e_name").innerHTML = getData.userId;
+                    document.getElementById("e_id").innerHTML = getData.id;
                     debugger;
-                    document.getElementById("e_age").innerHTML = getData.data.employee_age;
-                    document.getElementById("e_salary").innerHTML = getData.data.employee_salary;
+                    document.getElementById("e_age").innerHTML = getData.title
+                    document.getElementById("e_salary").innerHTML = getData.body;
 
                 }
 
@@ -86,28 +88,26 @@
             //  document.getElementById('postdiv').style.visibility="visible";
             var getObj = new XMLHttpRequest();
             // var url = "http://dummy.restapiexample.com/api/v1/employee/2";
-            var url = "../data/employee.json";
+            var url = "https://jsonplaceholder.typicode.com/posts";
             getObj.open("POST", url, true);
             getObj.setRequestHeader("Content-Type", "application/json");
             debugger;
             getObj.onreadystatechange = function () {
-                if (getObj.readyState == 4 && getObj.status == 200) {
+                if (getObj.readyState == 4 && getObj.status == 201) {
+                    alert("SUCCEFULLY POSTED");
                 }
             };
             var data1 = JSON.stringify({
-                "data":
-                {
-                    "id": document.getElementById("ge_id").value,
-                    "employee_name": document.getElementById("ge_name").value,
-                    "employee_salary": document.getElementById("ge_sAL").value,
-                    "employee_age": document.getElementById("ge_age").value
-                }
+                "userId": document.getElementById("ge_name").value,
+                "id": document.getElementById("ge_id").value,
+                "title": document.getElementById("ge_age").value,
+                "body": document.getElementById("ge_sal").value
             });
             getObj.send(data1)
 
 
         }
-         
+
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
@@ -120,24 +120,21 @@
     <button id="get_b" onclick="onGet()">GET</button>
     <button onclick="onPost()">POST</button>
     <div class="postdiv">
-        <p>NAME : <b id="e_name"></b></p>
+        <p>USER ID : <b id="e_name"></b></p>
         <p>ID : <b id="e_id"></b></p>
-        <p>AGE :<b id="e_age"></b></p>
-        <p>SALARY :<b id="e_salary"></b></p>
+        <p>TITLE :<b id="e_age"></b></p>
+        <p>BODY :<b id="e_salary"></b></p>
     </div>
 
     <div class="getdiv">
-        <label for="ge_name">NAME :</label> <input type="text" name="Name" id="ge_name">
+        <label for="ge_name">USER ID :</label> <input type="text" name="Name" id="ge_name">
         </br>
-        <label for="ge_id">ID :</label> <input type="text" name="ID" id="ge_Id"></br>
-        <label for="ge_age">AGE :</label><input type="text" name="AGE" id="ge_age"></br>
-        <label for="ge_sal">SALARY :</label><input type="text" name="SALRY" id="ge_sAL"></div>
-    <button style="width: 100px; float: right;" onclick="PostMethod">SUBMIT</button>
+        <label for="ge_id">ID :</label> <input type="text" name="ID" id="ge_id"></br>
+        <label for="ge_age">TITLE</label><input type="text" name="AGE" id="ge_age"></br>
+        <label for="ge_sal">BODY :</label><input type="text" name="SALRY" id="ge_sal">
+        <button style="width: 100px;" onclick="PostMethod()">SUBMIT</button>
+
     </div>
-
-
-
-
 </body>
 
 </html>
