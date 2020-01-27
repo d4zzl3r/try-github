@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            margin: 0px;
+        }
+
+        #tab {
+            margin-top: 50px;
+            background-color: chartreuse;
+            border: 3px;
+            width: 80%;
+            /* height: 300px; */
+            overflow: auto;
+            border-collapse: collapse;
+            border: 3px solid black;
+        }
+
+        #tab th {
+            background-color: darkred;
+            color: black;
+            /* min-width: 20%;
+            max-width: 25%; */
+            border: 3px solid black;
+        }
+
+        #tab tr td:first-child {
+            background-color: darkblue;
+            color: black;
+            /* min-width: 20%;
+            max-width: 25%; */
+            border: 3px solid black;
+        }
+
+        #tab tr td:nth-child(2) {
+            background-color: red;
+            color: black;
+            /* min-width: 20%;
+            max-width: 25%; */
+            border: 3px solid black;
+        }
+
+        #tab tr td:nth-child(3) {
+            background-color: darkmagenta;
+            color: black;
+            /* min-width: 20%;
+            max-width: 25%; */
+            border: 3px solid black;
+        }
+
+
+        .country {
+            margin: 1px;
+            float: left;
+            /* display: inline-block; */
+            padding-left: 5px;
+            width: 30%;
+            height: 50px;
+            background-color: orange;
+
+        }
+
+        .state {
+            margin: 1px;
+            float: inline-end;
+            width: 30%;
+            height: 50px;
+            background-image: radial-gradient(30%, rgb(229, 228, 228), blue, rgb(229, 228, 228));
+
+        }
+
+        .city {
+            margin: 1px;
+            float: inline-end;
+            width: 30%;
+            height: 50px;
+            background-color: green;
+        }
+    </style>
+    <script src="/js/jquery.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+    <!-- <script>
+        $(Document).ready(function () {
+            alert("HELLO JUST TRYING0");
+        });
+    </script> -->
+    <script>
+        var co;
+        var st;
+        var ct;
+        $(document).ready(function () {
+            debugger;
+            $(".country").change(function () {
+                debugger;
+                co = $(this).val();
+
+                if (co == "IN") {
+                    co = "INDIA";
+                    $(".state").html("<option>SELECT STATE</option><option value='MH'>MAHARAHSTRA</option><option value='UP'>UTTARPRADESH</option><option value='RJ'>RAJASHTAN</option>");
+                }
+                else if (co == "PK") {
+                    co = "PAKISTAN";
+                    $(".state").html("<option>SELECT STATE</option><option value='PN'>PUNJAB</option><option value='SN'>SIND</option><option value='BC'>BALOCHISTAN</option>");
+                }
+                else if (co == "SL") {
+                    co = "SRI LANKA";
+                    $(".state").html("<option>SELECT STATE</option><option value='CL'>COLOMBO</option>");
+                }
+                else {
+                    $(".state").html("<option>SELECT COUNTRY AGAIN</option>");
+                }
+            });
+
+            $(".state").change(function () {
+                st = $(this).val();
+                if (co == "INDIA") {
+                    if (st == "MH")
+                    {
+                        st = "MAHARASHTRA";
+                        $(".city").html("<option>SELECT CITY</option><option value='MUMBAI'>MUMBAI</option><option value='NAGPUR'>NAGPUR</option><option value='PUNE'>PUNE</option>")
+                    }
+                   else if (st == "UP")
+                    {
+                        st = "UTTAR PRADESH";
+                        $(".city").html("<option>SELECT CITY</option><option value='LUCKNOW'>LUCKNOW</option><option value='ALLAHABAD'>ALLAHABAD</option><option value='MATHURA'>MATHURA</option>")
+                    }
+                    else if (st == "RJ")
+                    {
+                        st = "RAJASTHAN";
+                        $(".city").html("<option>SELECT CITY</option><option value='JAIPUR'>JAIPUR</option><option value='AJMER'>AJMER</option><option value='JODHPUR'>JODHPUR</option>")
+                    }
+
+                }
+                else if(co == "PAKISTAN")
+                {
+                    if (st == "PN")
+                    {
+                        st = "PUNJAB";
+                        $(".city").html("<option>SELECT CITY</option><option value='LAHORE'>LAHORE</option>");
+                    }
+                    
+                    else if (st == "SN")
+                    {
+                        st = "SIND";
+                        $(".city").html("<option>SELECT CITY</option><option value='SIND'>SIND</option><option value='KARACHI'>KARACHI</option>");
+                    }
+                    else if (st == "BC")
+                    {
+                        st = "BALOCHISTAN";
+                        $(".city").html("<option>SELECT CITY</option><option value='BALOCHISTAN'>BALOCHISTAN</option>");
+                    }
+                }
+                else if(co == "SRI LANKA")
+                {
+                    if(st == "CL")
+                    {
+                        st = "COLOMBO";
+                        $(".city").html("<option>SELECT CITY</option><option value='COLOMBO'>COLOMBO</option>");
+
+                    }
+
+                }
+            });
+
+            $(".city").change(function(){
+                ct = $(this).val();
+                var td = "<tr><td>"+co+"</td><td>"+st+"</td><td>"+ct+"</td></tr>";
+                $("#tab tr:last").after(td);
+            });
+        });
+
+    </script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <select class="country">
+            <option>Choose country</option>
+            <option value="IN">INDIA</option>
+            <option value="PK">PAKISTAN</option>
+            <option value="SL">SRI LANKA</option>
+        </select>
+        <select class="state">
+            <option>SELECT COUNTRY FIRST</option>
+        </select>
+        <select class="city">
+            <option>Select State first</option>
+        </select>
+    </div>
+
+    <table id="tab">
+        <tr>
+            <th>COUNTRY</th>
+            <th>STATE</th>
+            <th>CITY</th>
+        </tr>
+    </table>
+
+</body>
+
+</html>
