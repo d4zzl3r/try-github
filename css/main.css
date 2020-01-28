@@ -3,48 +3,41 @@
     color: rgb(238, 211, 211);
     font-weight: bolder;
     float: left;
-    width: 30%;
+    width: 25%;
+    height: 50px;
     
 }
 #city{
     background-color: black;
     color: white;
     font-weight: bolder;
+    height: 50px;
     float: inline-end;
-    width: 30%;
+    width: 25%;
+   
 }
+
 #tab {
-    margin-top: 50px;
-    background-color: chartreuse;
-    border: 3px;
-    width: 80%;
-    /* height: 300px; */
-    overflow: auto;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    border: 3px solid black;
-}
-
-#tab th {
-    background-color: darkred;
-    color: black;
-    width: 40%;
-    /* min-width: 20%;
-    max-width: 25%; */
-    border: 3px solid black;
-}
-
-#tab tr td:first-child {
-    background-color: darkblue;
-    color: black;
-    /* min-width: 20%;
-    max-width: 25%; */
-    border: 3px solid black;
-}
-
-#tab tr td:nth-child(2) {
-    background-color: red;
-    color: black;
-    /* min-width: 20%;
-    max-width: 25%; */
-    border: 3px solid black;
-}
+    width: 50%;
+    margin-top: 40px;
+  }
+  
+  #tab td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #tab tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #tab tr:hover {background-color: #ddd;}
+  
+  #tab th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid lightsalmon;
+  }

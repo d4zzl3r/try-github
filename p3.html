@@ -2,22 +2,23 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-
-
 </head>
 
-<body>
-    <select id="country">
-        <option>SELECT COUNTRY</option>
-    </select>
-    <select id="city">
-        <option>SELECT CITY</option>
-    </select>
+<body>   
+        <select id="country">
+            <option>SELECT COUNTRY</option>
+        </select>
+
+        <select id="city">
+            <option>SELECT CITY</option>
+        </select>
+   
+
     <table id="tab">
         <tr>
             <th>COUNTRY </th>
@@ -25,43 +26,8 @@
         </tr>
     </table>
 
-    <script src='js/main.js'>
-    </script>
     <script src="js/jquery.js"></script>
-    <script>
-        var conVal, cityVal;
-        $(document).ready(function () {
-            debugger;
-            $("#country option").hide();
-            for (var i = 0; i < coun.length; i++) {
-
-                $("#country").append("<option value =" + coun[i].Name + ">" + coun[i].Name + "</option>");
-            }
-            $("#country").change(function () {
-                $("#city option").hide();
-                debugger;
-                // var optTag = "";
-                 conVal = $(this).val();
-                for (var i = 0; i < coun.length; i++) {
-                    if (conVal == coun[i].Name) {
-                        for (var j = 0; j < coun[i].States.length; j++) {
-                            $("#city").append("<option value =" + coun[i].States[j] + ">" + coun[i].States[j] + "</option>");
-                        }
-                    }
-                }
-                // $("#city").html(optTag);
-            });
-
-            $("#city").change(function (){
-                cityVal = $(this).val();
-                var rr = "<tr><td>"+conVal+"</td><td>"+cityVal+"</td></tr>";
-                $("#tab tr:last").after(rr);
-            
-            });
-        });
-
-    </script>
-
+    <script src='js/main.js'></script>
 </body>
 
 </html>
