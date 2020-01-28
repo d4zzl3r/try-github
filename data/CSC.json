@@ -1,0 +1,25 @@
+[
+    {
+        "Name": "INDIA",
+        "States": [
+            "MUMBAI",
+            "DELHI",
+            "KOLKATA",
+            "CHENNAI"
+        ]
+    },
+    {
+        "Name": "USA",
+        "States": [
+            "L.A",
+            "NEW YORK"
+        ]
+    },
+    {
+        "Name": "SPAIN",
+        "States": [
+            "BARCELONA",
+            "MADRID"
+        ]
+    }
+]

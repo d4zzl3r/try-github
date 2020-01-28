@@ -1,0 +1,50 @@
+#country{
+    background-color: black;
+    color: rgb(238, 211, 211);
+    font-weight: bolder;
+    float: left;
+    width: 30%;
+    
+}
+#city{
+    background-color: black;
+    color: white;
+    font-weight: bolder;
+    float: inline-end;
+    width: 30%;
+}
+#tab {
+    margin-top: 50px;
+    background-color: chartreuse;
+    border: 3px;
+    width: 80%;
+    /* height: 300px; */
+    overflow: auto;
+    border-collapse: collapse;
+    border: 3px solid black;
+}
+
+#tab th {
+    background-color: darkred;
+    color: black;
+    width: 40%;
+    /* min-width: 20%;
+    max-width: 25%; */
+    border: 3px solid black;
+}
+
+#tab tr td:first-child {
+    background-color: darkblue;
+    color: black;
+    /* min-width: 20%;
+    max-width: 25%; */
+    border: 3px solid black;
+}
+
+#tab tr td:nth-child(2) {
+    background-color: red;
+    color: black;
+    /* min-width: 20%;
+    max-width: 25%; */
+    border: 3px solid black;
+}
