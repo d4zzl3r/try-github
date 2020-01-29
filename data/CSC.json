@@ -1,6 +1,6 @@
 [
     {
-        "Name": "INDIA",
+        "Name": "India",
         "States": [
             "MUMBAI",
             "DELHI",
@@ -9,14 +9,14 @@
         ]
     },
     {
-        "Name": "USA",
+        "Name": " United States of America",
         "States": [
             "L.A",
             "NEW YORK"
         ]
     },
     {
-        "Name": "SPAIN",
+        "Name": "Spain",
         "States": [
             "BARCELONA",
             "MADRID"
