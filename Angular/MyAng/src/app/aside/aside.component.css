@@ -1,0 +1,9 @@
+div{
+    background-color: dimgray;
+    width: 29%;
+    height: 600px;
+    padding: 2px;
+    text-align: center;
+    font-size: 30px;
+    float: left;
+}

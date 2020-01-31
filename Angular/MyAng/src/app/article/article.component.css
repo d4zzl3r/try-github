@@ -1,0 +1,10 @@
+div{
+    background-color: lightgreen;
+    width: 30%;
+    height: 600px;
+    padding: 2px;
+    color: black;
+    text-align: center;
+    font-size: 30px;
+    float:left;
+}

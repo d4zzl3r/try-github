@@ -1,0 +1,10 @@
+div {
+    background-color: crimson;
+    color: cyan;
+    width: 40%;
+    height: 600px;
+    padding: 2px;
+    font-size: 38px;
+    float:left;
+    text-align: center;
+}
